@@ -1,0 +1,73 @@
+<div [ngClass]="{
+  'closed-sidebar': globals.toggleSidebar,
+  'closed-sidebar-md': globals.toggleSidebarMobile,
+  'closed-sidebar-open': globals.sidebarHover || globals.toggleSidebarMobile,
+  'header-menu-open': globals.toggleHeaderMobile,
+  'fixed-footer': globals.toggleFixedFooter
+}" [class]="'app-container app-theme-white'">
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="app-main__outer">
+  <div class="app-main__inner">
+      <app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon"></app-page-title>
+
+<div class="row">
+  <div class="col-4" >
+    <div class="main-card mb-3 card">
+      <div class="card-body">
+        <h5 class="card-title">{{heading}}</h5>
+        <p *ngIf="showErr" class="warmsg">
+          {{msg}} </p>
+        <form>
+          <div class="position-relative form-group"><label for="exampleSelect">Select Task Id</label><select
+              name="search Title" id="exampleSelect" (change)="searchData($event.target.value)" class="form-control">
+              <option>Select ID</option>
+              <option *ngFor="let item of ids" value="{{item}}">{{item}}</option>
+            </select></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="main" class="col-12">
+    <div class="main-card mb-3 card">
+      <div class="card-body">
+        <h5 class="card-title">{{heading}}</h5>
+        
+        <form novalidate [formGroup]="updateTask">
+          <div class="position-relative form-group"><label for="exampleEmail">Task Title</label><input
+              name="tasktitle" id="exampleEmail" placeholder="Title for your task" formControlName="taskName"
+              type="text" class="form-control">
+          </div>
+          <div class="position-relative form-group"><label for="exampleText">Task Description</label>
+            <textarea name="description" formControlName="taskDescription" id="exampleText"
+              placeholder="Description of your task" class="form-control"></textarea>
+           
+          </div>
+          <div class="position-relative form-group"><label for="exampleSelect">Task Duration</label>
+            <select name="duration" formControlName="taskDuration" id="exampleSelect" class="form-control">
+              <option *ngFor="let item of duration" value="{{item}}">{{item}} hr</option>
+            </select>
+           
+          </div>
+          <div class="position-relative form-group"><label for="exampleSelect">Task Status</label>
+            <select name="duration" formControlName="taskStatus" id="exampleSelect1" class="form-control">
+              <option *ngFor="let item of status" value="{{item}}">{{item}}</option>
+            </select>
+           
+          </div>
+          <div class="position-relative form-group"><label for="exampleSelect">Assign To</label>
+            <select name="duration" formControlName="assignedTo" id="exampleSelect11" class="form-control">
+              <option *ngFor="let item of name" value="{{item}}">{{item}}</option>
+            </select>
+          
+          </div>
+          <button class="mt-1 btn btn-success" (click)="updateData()">Update Task</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<app-footer></app-footer>
+</div>

@@ -1,0 +1,32 @@
+// User Pages
+
+.app-logo {
+  background: transparent;
+  font-size: 24px;
+  text-align: center;
+}
+
+.app-logo-inverse {
+  background: transparent;
+  font-size: 24px;
+  text-align: center;
+}
+
+.app-login-box {
+  .app-logo {
+    margin-bottom: $layout-spacer-lg;
+  }
+
+  h4 {
+    margin-bottom: $layout-spacer-x;
+    font-weight: normal;
+
+    div {
+      opacity: .6;
+    }
+
+    span {
+      font-size: $font-size-lg;
+    }
+  }
+}

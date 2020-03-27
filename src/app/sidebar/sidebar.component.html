@@ -1,0 +1,112 @@
+<div
+  [class]="'app-sidebar sidebar-shadow ' + (config$ | async).sidebarTheme"
+  (mouseover)="sidebarHover()"
+  (mouseout)="sidebarHover()"
+>
+  <div class="app-header__logo">
+    <div class="logo-src">Task Manager</div>
+  </div>
+  <div class="app-sidebar-content">
+    <div class="app-sidebar-scroll">
+      <perfect-scrollbar [autoPropagation]="true">
+        <div class="v-sidebar-menu vsm-default">
+          <div class="vsm-list">
+            <ngb-accordion
+              [destroyOnHide]="false"
+              [closeOthers]="true"
+              [activeIds]="extraParameter"
+            >
+              <ngb-panel>
+                <ng-template ngbPanelHeader>
+                  <div class="vsm-header">Main Navigation</div>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="dashboardsMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link">
+                    <i class="vsm-icon pe-7s-rocket"></i>
+                    <span class="vsm-title">Dashboards</span>
+                    <i class="vsm-arrow"></i>
+                  </button>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <div class="vsm-dropdown">
+                    <div class="vsm-list">
+                      <div class="vsm-item">
+                        <a *ngIf="role"
+                          (click)="goTo('home')"
+                          routerLinkActive="active-item"
+                          [routerLinkActiveOptions]="{ exact: true }"
+                          class="vsm-link"
+                          ><span class="vsm-title">Admin Panel</span></a
+                        >
+                        <a *ngIf="!role"
+                          (click)="goTo('user')"
+                          routerLinkActive="active-item"
+                          [routerLinkActiveOptions]="{ exact: true }"
+                          class="vsm-link"
+                          ><span class="vsm-title">User Panel</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="pagesMenu">
+                <ng-template ngbPanelHeader>
+                  <button ngbPanelToggle class="vsm-link">
+                    <i class="vsm-icon pe-7s-browser"></i>
+                    <span class="vsm-title">Action</span>
+                    <i class="vsm-arrow"></i>
+                  </button>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <div class="vsm-dropdown">
+                    <div  *ngIf="role" class="vsm-list">
+                      <div class="vsm-item">
+                        <a
+                          routerLinkActive="active-item"
+                          (click)="goTo('createtask')"
+                          class="vsm-link"
+                          ><span class="vsm-title">Create Task</span></a
+                        >
+                      </div>
+                      <div class="vsm-item">
+                        <a
+                          routerLinkActive="active-item"
+                          (click)="goTo('updatetask')"
+                          class="vsm-link"
+                          ><span class="vsm-title">Update Task</span></a
+                        >
+                      </div>
+                      <div class="vsm-item">
+                        <a
+                          routerLinkActive="active-item"
+                          (click)="goTo('assigntask')"
+                          class="vsm-link"
+                          ><span class="vsm-title">Assign Task</span></a
+                        >
+                      </div>
+                    </div>
+                    <div *ngIf="!role" class="vsm-list">
+                      
+                      <div class="vsm-item">
+                        <a
+                          routerLinkActive="active-item"
+                          (click)="goTo('usertaskupdate')"
+                          class="vsm-link"
+                          ><span class="vsm-title">Update Task</span></a
+                        >
+                      </div>
+
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+          </div>
+        </div>
+      </perfect-scrollbar>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+
+<div [ngClass]="{
+  'closed-sidebar': globals.toggleSidebar,
+  'closed-sidebar-md': globals.toggleSidebarMobile,
+  'closed-sidebar-open': globals.sidebarHover || globals.toggleSidebarMobile,
+  'header-menu-open': globals.toggleHeaderMobile,
+  'fixed-footer': globals.toggleFixedFooter
+}" [class]="'app-container app-theme-white'">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="app-main__outer">
+    <div class="app-main__inner">
+      <app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon"></app-page-title>
+
+<div class="row">
+<div class="col-8" *ngIf="true">
+  <div class="main-card mb-3 card">
+    <div class="card-body">
+      <h5 class="card-title">{{heading}}</h5>
+      <p *ngIf="showErr" class="warmsg">
+        {{msg}} </p>
+      <form [formGroup]="assignTask" novalidate>
+        <div class="position-relative form-group"><label for="exampleSelect">Select Employee ID</label><select
+          name="empid" id="exampleSelect" class="form-control" formControlName="assignedTo">
+          <option>Select Id</option>
+          <option *ngFor="let item of name" value="{{item}}">{{item}}</option>
+        </select></div>
+        <div class="position-relative form-group"><label for="exampleSelect1" >Select Task ID</label><select
+            name="tasktitle" id="exampleSelect1" class="form-control" formControlName="task">
+            <option >Select Task</option>
+            <option *ngFor="let item of task" value="{{item}}">{{item}}</option>
+          </select></div>
+        <button class="mt-1 btn btn-warning" (click)="updateData()" [disabled]="!assignTask.valid">Assign Task</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<app-footer></app-footer>
+</div>

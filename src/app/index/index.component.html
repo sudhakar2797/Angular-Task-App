@@ -1,0 +1,29 @@
+<div class="h-100 bg-plum-plate bg-animation">
+  <div class="d-flex h-100 justify-content-center align-items-center">
+    <div class="mx-auto app-login-box col-md-6">
+      <div class="app-logo-inverse mx-auto mb-3">Task Manager</div>
+      <div class="modal-dialog w-100">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img
+              class="img-responsive"
+              src="assets/images/commons/welcome.gif"
+              width="100%"
+              height="100%"
+            />
+            <div class="divider"></div>
+            <div class=" d-flex justify-content-center align-items-center">
+              <button (click)="goTo('login')" class="btn btn-info mr-4">SignIn</button>
+              <button (click)="goTo('register')"  class="btn btn-success">
+                SignUp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-white opacity-8 mt-3">
+        Copyright © Task Manager {{ year | date: "y" }}
+      </div>
+    </div>
+  </div>
+</div>
