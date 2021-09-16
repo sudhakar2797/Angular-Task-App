@@ -45,7 +45,7 @@
     "pe7-icon": "^1.0.4",
     "redux": "4.0.0",
     "serialize-javascript": "^3.0.0",
-    "set-value": "^3.0.1",
+    "set-value": "^4.0.1",
     "tslib": "^1.9.0",
     "write-json-file": "^4.3.0",
     "zone.js": "~0.8.26"
