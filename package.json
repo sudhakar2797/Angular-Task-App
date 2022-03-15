@@ -35,7 +35,7 @@
     "font-awesome": "^4.7.0",
     "handlebars": "^4.7.3",
     "lodash": "^4.17.15",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "minimist": "^1.2.5",
     "mixin-deep": "^2.0.1",
     "ng-bootstrap": "^1.6.3",
